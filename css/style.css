@@ -1,0 +1,29 @@
+body {
+    background-color: rgb(61, 54, 54);
+    color:white; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+}
+
+.cell {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    font-size: 1.5em;
+    border: 1px solid blanchedalmond ;
+}
+
+.cell:hover {
+    cursor: pointer;
+    background-color: rgba(129, 200, 228, 0.521);
+}
+
+.cell-click {
+    background-color: rgba(129, 200, 228, 0.521);
+}
+
+.game-over {
+    display: none;
+}

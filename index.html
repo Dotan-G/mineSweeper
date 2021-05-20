@@ -6,27 +6,55 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <title>Document</title>
+    <title>Minesweeper</title>
 </head>
 
-<body onload="initGame()" onkeypress="check(event)">
+<body onload="initGame()">
+    <div class="header">
+        <h2>Minesweeper</h2>
+    </div>
 
-    <h2>Minesweeper game</h2>
     <div class="difficulty">
+        <p>Please choose board size</p>
         <button onclick="changeBoard(this)">4</button>
         <button onclick="changeBoard(this)">8</button>
-        <button onclick="changeBoard(this)">16</button>
+        <button onclick="changeBoard(this)">12</button>
     </div>
-    <div class="board-container"></div>
+
+    <div class="container">
+
+        <div class="head-container">
+            <div class="flags">2</div>
+            <div class="emoji" onclick="initGame()">😃</div>
+            <div class="time"><span>000</span></div>
+        </div>
+
+        <div class="features">
+            <div class="lives">
+                <div class="live live1">❤️</div>
+                <div class="live live2">❤️</div>
+                <div class="live live3">❤️</div>
+            </div>
+            <div class="hints">
+                <div onclick="getHint(this, gBoard)" class="light light1">💡</div>
+                <div onclick="getHint(this, gBoard)" class="light light2">💡</div>
+                <div onclick="getHint(this, gBoard)" class="light light3">💡</div>
+            </div>
+        </div>
+
+        <div class="board-container"></div>
+    </div>
 
     <div class="game-over">
-        <div>You won!!</div>
-        <button onclick="initGame()">Restart game</button>
+        <p>You won!!</p>
     </div>
+
+    <footer>
+        <p>&copy Dotan Gerbi</p>
+    </footer>
 
     <script src="js/game.js"></script>
     <script src="js/util.js"></script>
-
 
 </body>
 

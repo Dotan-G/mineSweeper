@@ -1,10 +1,121 @@
 body {
-    background-color: rgb(61, 54, 54);
+    margin: 0;
+    background-color: rgb(161, 161, 161);
     color:white; 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center; 
+
+}
+
+.header {
+    margin-top: 0;
+    height: 10rem;
+    width: 100%;
+    font-family:'Courier New', Courier, monospace;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    background-color: rgba(129, 200, 228, 0.521);
+    font-size: 4rem;
+    color: rgb(0, 0, 0);
+}
+
+.header h2 {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    margin-top: 1rem;
+    border: 0.15rem solid black;
+    display: flex;
+    flex-direction: column;
+}
+
+.head-container {
+    background-color: rgb(161, 161, 161);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.features {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.lives {
+    margin: 0.35rem auto 0.35rem 0.2rem;
+}
+
+.container div .live {
+    display: inline;
+    font-size: 2rem;
+}
+.container div .light {
+    display: inline;
+    font-size: 2rem;
+}
+
+.light-hint {
+    background-color: yellow;
+}
+
+.head-container .flags, .emoji, .time {
+    /* border: 0.2rem solid black; */
+    height: 3rem;
+    width: 4.75rem;
+}
+
+.flags {
+    margin: 0.5rem  auto 0.5rem 0.5rem;
+    background-color: rgb(204, 204, 204);
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    font-size: 2.5rem;
+}
+
+.emoji {
+    background-color: rgb(204, 204, 204);
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    font-size: 2.5rem;
+}
+
+.time {
+    margin: 0.5rem 0.5rem 0.5rem auto;
+    background-color: rgb(204, 204, 204);
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    font-size: 2.5rem;
+}
+
+.difficulty {
+    height: auto;
+    text-align: center;
+    color: black;
+    font-weight: 500;
+}
+
+.difficulty button{
+    height: 3rem;
+    width: 4rem;
+    margin:  0 0.2rem;
+    background-color: linen;
+    border-radius: 2rem;
+    border: 0.15rem solid black ;
+}
+
+.board-container {
+    margin: auto ;
 }
 
 .cell {
@@ -12,18 +123,39 @@ body {
     height: 40px;
     text-align: center;
     font-size: 1.5em;
-    border: 1px solid blanchedalmond ;
-}
-
-.cell:hover {
+    border: 1px solid rgb(255, 255, 255) ;
     cursor: pointer;
-    background-color: rgba(129, 200, 228, 0.521);
 }
 
 .cell-click {
+    color: black;
     background-color: rgba(129, 200, 228, 0.521);
+    cursor: not-allowed;
+}
+
+.cell-mine {
+    background-color: red;
+}
+.cell:hover {
+    background-color: rgba(129, 200, 228, 0.521);
+} 
+.cell-mine:hover {
+    background-color: red;
+    cursor: not-allowed;
 }
 
 .game-over {
     display: none;
+    text-align: center;
+    color: black;
+    font-weight: 900;
+}
+
+footer {
+    background-color: rgb(0, 0, 0);
+    width: 100%;
+    font-weight: 600;
+    bottom: 0;
+    position: fixed;
+    text-align: center;
 }

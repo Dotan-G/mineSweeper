@@ -4,9 +4,9 @@ function printMat(mat, selector) {
         strHTML += '<tr>';
         for (var j = 0; j < mat[0].length; j++) {
             var cell = mat[i][j];
-            var id = 'cell-' + i + '-' + j
+            var id = 'cell-' + i + '-' + j;
             var className = 'cell';
-            strHTML += `<td onmouseup="getCoordsAndMark(this, gBoard)"  id="${id}" class=" ${className}">${cell}</td>`
+            strHTML += `<td onmouseup="getCoordsAndMarkOnCellClick(this, gBoard)" oncontextmenu="return false" id="${id}" class=" ${className}">${cell}</td>`
         }
         strHTML += '</tr>'
     }
@@ -26,17 +26,23 @@ function getRandomIntInclusive(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
 }
 
-function getEmptyCells(board) {
-    var emptyCells = []
-    for (var i = 0; i < board.length; i++) {
-        for (var j = 0; j < board.length; j++) {
-            if (board[i][j] === EMPTY) {
-                var obj = { i, j }
-                console.log(obj)
-                emptyCells.push(obj)
-                console.log(emptyCells)
-            }
-        }
-    }
-    return emptyCells
+function getIdxsById(elCell) {
+    var idNameInArr = elCell.id.split('-')
+    var cellIdxs = { i: idNameInArr[1], j: idNameInArr[2] }
+    return cellIdxs
 }
+
+// function getEmptyCells(board) {
+//     var emptyCells = []
+//     for (var i = 0; i < board.length; i++) {
+//         for (var j = 0; j < board.length; j++) {
+//             if (board[i][j] === EMPTY) {
+//                 var obj = { i, j }
+//                 console.log(obj)
+//                 emptyCells.push(obj)
+//                 console.log(emptyCells)
+//             }
+//         }
+//     }
+//     return emptyCells
+// }

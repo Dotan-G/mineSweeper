@@ -1,15 +1,15 @@
 'use strict'
 const SPACE = ' ';
 const EMPTY = '';
-const MINE = '💥' // need to change
-const FLAG = '🚩'
-const EMOJI_SMILE = '😃'
-const EMOJI_BLOWING = '🤯'
+const MINE = '💥';
+const FLAG = '🚩';
+const EMOJI_SMILE = '😃';
+const EMOJI_BLOWING = '🤯';
 const EMOJI_SUNGLASSESS = '😎'
 
-var gElEmoji = document.querySelector('.emoji')
-var gElCountFlagsDown = document.querySelector('.flags')
-var gElTime = document.querySelector('.time span')
+var gElEmoji = document.querySelector('.emoji');
+var gElCountFlagsDown = document.querySelector('.flags');
+var gElTime = document.querySelector('.time span');
 var gHintToggle;
 var gElLight;
 var gElLives;
@@ -294,36 +294,3 @@ function initGame() {
     console.table(gBoard)
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// ////////////////////////////////////////////
-
-// function updateModel(board, i, j) {
-//     var cell = board[i][j]
-//     var elCell = document.querySelector(`#cell-${i}-${j}`)
-//     if (cell.isShown && !cell.isMine) {
-//         elCell.classList.add('cell-click')
-//         if (!cell.minesAroundCount) {
-//             renderCell(i, j, EMPTY)
-//             openNegs(board, i, j)
-//         }
-//         else renderCell(i, j, cell.minesAroundCount);
-//     } else if (cell.isMarked) {
-//         renderCell(i, j, FLAG)
-//     } else if (!cell.isMarked) renderCell(i, j, EMPTY)
-//     return board;
-// }

@@ -6,7 +6,8 @@ function printMat(mat, selector) {
             var cell = mat[i][j];
             var id = 'cell-' + i + '-' + j;
             var className = 'cell';
-            strHTML += `<td onmouseup="getCoordsAndMarkOnCellClick(this, gBoard)" oncontextmenu="return false" id="${id}" class=" ${className}">${cell}</td>`
+            strHTML += `<td onmouseup="getCoordsAndMarkOnCellClick(this, gBoard)" 
+            oncontextmenu="return false" id="${id}" class=" ${className}">${cell}</td>`
         }
         strHTML += '</tr>'
     }
@@ -31,18 +32,3 @@ function getIdxsById(elCell) {
     var cellIdxs = { i: idNameInArr[1], j: idNameInArr[2] }
     return cellIdxs
 }
-
-// function getEmptyCells(board) {
-//     var emptyCells = []
-//     for (var i = 0; i < board.length; i++) {
-//         for (var j = 0; j < board.length; j++) {
-//             if (board[i][j] === EMPTY) {
-//                 var obj = { i, j }
-//                 console.log(obj)
-//                 emptyCells.push(obj)
-//                 console.log(emptyCells)
-//             }
-//         }
-//     }
-//     return emptyCells
-// }

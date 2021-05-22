@@ -5,11 +5,11 @@ const MINE = '💥';
 const FLAG = '🚩';
 const EMOJI_SMILE = '😃';
 const EMOJI_BLOWING = '🤯';
-const EMOJI_SUNGLASSESS = '😎'
+const EMOJI_SUNGLASSESS = '😎';
 
-var gElEmoji = document.querySelector('.emoji');
-var gElCountFlagsDown = document.querySelector('.flags');
-var gElTime = document.querySelector('.time span');
+var gElEmoji = document.querySelector('.emoji')
+var gElCountFlagsDown = document.querySelector('.flags')
+var gElTime = document.querySelector('.time span')
 var gHintToggle;
 var gElLight;
 var gElLives;
@@ -20,21 +20,6 @@ var gLevel = { SIZE: 4, MINES: 2 };
 var gGame;
 var gCountFlagsDown;
 
-
-
-function getHint(elLight, board) {
-    elLight.innerText = EMPTY;
-    for (var i = 0; i < 4; i++) {
-        for (var j = 0; j < 4; j++) {
-            if (board[i][j].isMine && !board[i][j].isShown) {
-                var elCell = document.getElementById(`cell-${i}-${j}`)
-                gHintToggle = setInterval(function () {
-                    elCell.classList.toggle('light-hint')
-                }, 500);
-            }
-        }
-    }
-}
 
 function countSeconds() {
     var seconds = gGame.secsPassed++
@@ -61,6 +46,7 @@ function openNegs(board, cellRowIdx, cellColIdx) {
 function printCellContentOnBoard(board, i, j) {
     var cell = board[i][j]
     var elCell = document.querySelector(`#cell-${i}-${j}`)
+
     if (cell.isShown && !cell.isMine) {
         elCell.classList.add('cell-click')
 
@@ -86,10 +72,11 @@ function printAndUpdateModel(board, elCell, getCellIdxs) {
     var cellByIdxs = board[getCellIdxs.i][getCellIdxs.j]
 
     if (!gGame.isOn) return
+    if (cellByIdxs.isShown) return
     if ((!event.button || event.button === 2) && (!gGame.secsPassed)) {
         gGame.secsPassed += 1
         gTimeInter = setInterval(countSeconds, 1000);
-        createMine(board, getCellIdxs.i, getCellIdxs.j)
+        createMine(board, +getCellIdxs.i, +getCellIdxs.j)
         setCellsMinesNegs(board)
     }
 
@@ -112,6 +99,7 @@ function printAndUpdateModel(board, elCell, getCellIdxs) {
         !cellByIdxs.isMarked &&
         cellByIdxs.isMine) {
         // Model
+        cellByIdxs.isShown = true
         elCell.classList.add('cell-mine')
         gElLives = document.querySelector(`.live${gGame.lives}`)
         gElLives.innerText = '💔'
@@ -235,11 +223,11 @@ function createMine(board, i, j) {
     while (minesCount < gLevel.MINES) {
         var randI = +getRandomIntInclusive(0, gLevel.SIZE - 1)
         var randJ = +getRandomIntInclusive(0, gLevel.SIZE - 1)
-        if (!board[randI][randJ].isMine) {
-            if (i === randI && j === randJ) continue
-            board[randI][randJ].isMine = true;
-            minesCount++
-        }
+        if (i === randI && j === randJ) continue
+        if (board[randI][randJ].isMine) continue
+        board[randI][randJ].isMine = true;
+        minesCount++
+
     }
     return board
 }

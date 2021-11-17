@@ -6,56 +6,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <title>Minesweeper</title>
+    <title>MineSweeper</title>
 </head>
 
-<body onload="initGame()">
-    <div class="header">
+<body onload="init()">
+    <div class="header flex justify-center align-center">
         <h2>Minesweeper</h2>
     </div>
-
-    <div class="difficulty">
-        <p>Please choose board size</p>
-        <button onclick="changeBoard(this)">4</button>
-        <button onclick="changeBoard(this)">8</button>
-        <button onclick="changeBoard(this)">12</button>
-    </div>
-
-    <div class="container">
-
-        <div class="head-container">
-            <div class="flags">2</div>
-            <div class="emoji" onclick="initGame()">😃</div>
-            <div class="time"><span>000</span></div>
-        </div>
-
-        <div class="features">
-            <div class="lives">
-                <div class="live live1">❤️</div>
-                <div class="live live2">❤️</div>
-                <div class="live live3">❤️</div>
-            </div>
-            <div class="hints">
-                <div onclick="getHint(this)" class="light light1">💡</div>
-                <div onclick="getHint(this)" class="light light2">💡</div>
-                <div onclick="getHint(this)" class="light light3">💡</div>
+    <div class="main-container flex flex-direction-column justify-center align-center">
+        <div class="choose-difficulty">
+            <p class="flex justify-center align-center">Please choose board size</p>
+            <div class="change-board-size flex justify-center align-center">
+                <button onclick="onChangeBoard(4)">4 X 4</button>
+                <button onclick="onChangeBoard(8)">8 X 8</button>
+                <button onclick="onChangeBoard(12)">12 X 12</button>
             </div>
         </div>
+        <div class="game-container">
+            <div class="head-container flex justify-space-between align-center">
+                <div class="flags">2</div>
+                <div class="emoji flex justify-center align-center" onclick="init()">😃</div>
+                <div class="time"><span>000</span></div>
+            </div>
 
-        <div class="board-container"></div>
+            <div class="features flex justify-space-between align-center">
+                <div class="lives"></div>
+                <div class="hints"></div>
+            </div>
+
+            <div class="board-container"></div>
+            <div class="undo-and-safe flex justify-center align-center">
+                <button class="undo flex justify-center align-center" onclick="onUndo()">Undo</button>
+                <button class="safe-click flex justify-center align-center" onclick="onSafeClick(this)">Safe
+                    click</button>
+            </div>
+        </div>
+        <div class="best-score">Best score for this level:<span></span></div>
+        <div class="game-over" hidden>
+            <p>You won!!</p>
+        </div>
     </div>
 
-    <div class="game-over">
-        <p>You won!!</p>
-    </div>
-
-    <footer>
+    <footer class="copyright flex justify-center align-center">
         <p>&copy Dotan Gerbi</p>
     </footer>
-
     <script src="js/game.js"></script>
     <script src="js/util.js"></script>
-
 </body>
 
 </html>
